@@ -1,24 +1,16 @@
-#!/bin/sh
+#!/bin/bash 
 
-VIM=
-LANG=
+source scripts/file_io.sh
 
+ARGV="$@"
+ARGC=$#
 
-find_vim () {
-    local vims="vi vim nvim"
-    for v in $vims; do
-        if [ -f "/bin/$v" ]
-            then echo "$v"
-            return
-        fi
-    done
+help() {
+    echo 
 
-    echo "error: no vim detected."
-    exit -1
+    exit 0
 }
 
-LANG="$1"
-VIM="$(find_vim)"
-
-
-
+if [ $ARGC = 1 ]
+    then help
+fi 
